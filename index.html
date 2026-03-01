@@ -116,31 +116,31 @@
             50% { transform: translateY(-20px) rotate(5deg); }
         }
         
-        .service-card-modern {
-            background: rgba(26, 26, 46, 0.9);
-            border-radius: 24px;
+        .service-card-medical {
+            background: white;
+            border-radius: 16px;
             padding: 32px;
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            transition: all 0.5s ease;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(20px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
-        .service-card-modern::before {
+        .service-card-medical::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--neon-green), var(--neon-blue), var(--neon-purple));
+            height: 4px;
+            background: linear-gradient(90deg, var(--medical-blue), var(--health-green));
         }
         
-        .service-card-modern:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: var(--neon-green);
-            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.4);
+        .service-card-medical:hover {
+            transform: translateY(-4px);
+            border-color: var(--medical-blue);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
         }
         
         .hero-clean {
@@ -165,9 +165,9 @@
             box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
         }
         
-        .section-dark {
-            background: var(--dark-bg);
-            color: var(--text-light);
+        .section-medical {
+            background: #f8fafc;
+            color: var(--text-dark);
             padding: 80px 24px;
         }
         
@@ -557,19 +557,19 @@
     </section>
 
     <!-- Services Section -->
-    <section id="servicios" class="section-dark">
+    <section id="servicios" class="section-light">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <div class="inline-flex items-center space-x-2 glass-card px-4 py-2 text-sm text-green-400 mb-4">
-                    <i data-lucide="zap" class="w-4 h-4"></i>
+                <div class="inline-flex items-center space-x-2 bg-blue-100 rounded-full px-4 py-2 text-sm text-blue-600 mb-4">
+                    <i data-lucide="stethoscope" class="w-4 h-4"></i>
                     <span>Servicios</span>
                 </div>
-                <h2 class="text-4xl lg:text-6xl font-display font-bold text-white mb-6">
-                    Transforma tu 
-                    <span class="neon-text">Sueño</span> 
-                    para Siempre
+                <h2 class="text-4xl lg:text-6xl font-display font-bold text-gray-900 mb-6">
+                    Recupera tu 
+                    <span class="health-text">Bienestar</span> 
+                    Naturalmente
                 </h2>
-                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">
                     Métodos revolucionarios personalizados para cada paciente. 
                     Sin tiempos fijos, porque cada persona es única y merece un enfoque individual.
                 </p>
@@ -577,55 +577,55 @@
 
             <div class="grid lg:grid-cols-2 gap-8 mb-16">
                 <!-- Service 1: Sleep Apnea -->
-                <div class="service-card-modern group">
+                <div class="service-card-medical group">
                     <div class="flex items-start space-x-4 mb-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center pulse-neon">
                             <i data-lucide="moon" class="w-8 h-8 text-white"></i>
                         </div>
                         <div>
-                            <h3 class="font-display font-bold text-2xl text-white mb-2">
-                                🔥 Libertad del CPAP
+                            <h3 class="font-display font-bold text-2xl text-gray-900 mb-2">
+                                Libertad del CPAP
                             </h3>
-                            <p class="text-gray-300 leading-relaxed">
-                                La revolución que está liberando a miles de personas del CPAP. 
-                                Entreno tu cuerpo para respirar correctamente de forma natural.
+                            <p class="text-gray-600 leading-relaxed">
+                                Terapia natural que libera a miles de personas del CPAP. 
+                                Entrenamos tu cuerpo para respirar correctamente de forma natural.
                             </p>
                         </div>
                     </div>
                     
                     <div class="space-y-4 mb-6">
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
-                                <i data-lucide="check" class="w-4 h-4 text-black"></i>
+                            <div class="w-6 h-6 bg-health-green rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-white"></i>
                             </div>
-                            <span class="text-gray-300">Fortalecimiento muscular específico</span>
+                            <span class="text-gray-700">Fortalecimiento muscular específico</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
-                                <i data-lucide="check" class="w-4 h-4 text-black"></i>
+                            <div class="w-6 h-6 bg-health-green rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-white"></i>
                             </div>
-                            <span class="text-gray-300">Técnicas de respiración avanzadas</span>
+                            <span class="text-gray-700">Técnicas de respiración avanzadas</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
-                                <i data-lucide="check" class="w-4 h-4 text-black"></i>
+                            <div class="w-6 h-6 bg-health-green rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-white"></i>
                             </div>
-                            <span class="text-gray-300">Seguimiento personalizado</span>
+                            <span class="text-gray-700">Seguimiento personalizado</span>
                         </div>
                     </div>
                     
                     <div class="text-center mb-6">
-                        <div class="font-bold text-green-400 text-lg">Resultados comprobados sin dependencias</div>
+                        <div class="font-bold text-health-green text-lg">Resultados comprobados sin dependencias</div>
                     </div>
                     
-                    <button class="w-full btn-neon justify-center group-hover:scale-105 transition-transform">
-                        Quiero Ser Libre
+                    <button class="w-full btn-medical justify-center group-hover:scale-105 transition-transform">
+                        Iniciar Tratamiento
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </button>
                 </div>
 
                 <!-- Service 2: Snoring -->
-                <div class="service-card-modern group">
+                <div class="service-card-medical group">
                     <div class="flex items-start space-x-4 mb-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center pulse-neon">
                             <i data-lucide="wind" class="w-8 h-8 text-white"></i>
@@ -673,7 +673,7 @@
                 </div>
 
                 <!-- Service 3: Swallowing -->
-                <div class="service-card-modern group">
+                <div class="service-card-medical group">
                     <div class="flex items-start space-x-4 mb-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center pulse-neon">
                             <i data-lucide="heart" class="w-8 h-8 text-white"></i>
@@ -721,7 +721,7 @@
                 </div>
 
                 <!-- Service 4: Online -->
-                <div class="service-card-modern group">
+                <div class="service-card-medical group">
                     <div class="flex items-start space-x-4 mb-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center pulse-neon">
                             <i data-lucide="video" class="w-8 h-8 text-white"></i>
@@ -1123,11 +1123,11 @@
                 </div>
             </div>
             
-            <div class="bg-gradient-to-r from-purple-600 to-cyan-600 text-white rounded-3xl p-8 max-w-2xl mx-auto">
+            <div class="bg-gradient-to-r from-medical-blue to-health-green text-white rounded-3xl p-8 max-w-2xl mx-auto">
                 <h4 class="font-display font-bold text-2xl mb-4">
-                    Comienza Tu Recuperación
+                    Inicia tu Recuperación
                 </h4>
-                <p class="text-purple-100 mb-6 leading-relaxed">
+                <p class="text-blue-100 mb-6 leading-relaxed">
                     Sistema de citas online próximamente disponible. 
                     Mientras tanto, contáctame directamente para agendar tu evaluación:
                 </p>
@@ -1136,13 +1136,13 @@
                     href="https://wa.me/5492984931873"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="btn-neon text-xl px-12 py-4 mx-auto mb-6"
+                    class="btn-medical text-xl px-12 py-4 mx-auto mb-6"
                 >
                     <i data-lucide="message-circle" class="w-6 h-6"></i>
                     <span>WhatsApp Directo</span>
                 </a>
                 
-                <p class="text-sm text-purple-200">
+                <p class="text-sm text-blue-200">
                     Respuesta garantizada en menos de 24 horas
                 </p>
             </div>
@@ -1153,16 +1153,16 @@
     <footer class="bg-gray-900 text-white py-16">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
-                <div class="w-16 h-16 neon-gradient rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <span class="text-black font-bold text-xl font-display">FB</span>
+                <div class="w-16 h-16 medical-gradient rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <span class="text-white font-bold text-xl font-display">FB</span>
                 </div>
                 <h3 class="text-2xl font-display font-bold mb-2">Francisca Borrmann</h3>
-                <p class="neon-text text-lg">Especialista en Terapia Miofuncional</p>
+                <p class="text-blue-300 text-lg">Especialista en Terapia Miofuncional</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8 mb-8">
                 <div class="text-center md:text-left">
-                    <h4 class="font-semibold text-lg mb-4 text-green-400">Instituciones</h4>
+                    <h4 class="font-semibold text-lg mb-4 text-green-300">Instituciones</h4>
                     <div class="space-y-2 text-gray-300">
                         <p>Hospital Italiano de Buenos Aires</p>
                         <p>Instituto de Enfermedades del Sueño (IES)</p>
@@ -1171,7 +1171,7 @@
                 </div>
                 
                 <div class="text-center md:text-left">
-                    <h4 class="font-semibold text-lg mb-4 text-cyan-400">Servicios</h4>
+                    <h4 class="font-semibold text-lg mb-4 text-blue-300">Servicios</h4>
                     <div class="space-y-2 text-gray-300">
                         <p>Terapia para Apnea del Sueño</p>
                         <p>Eliminación de Ronquidos</p>
@@ -1181,7 +1181,7 @@
                 </div>
                 
                 <div class="text-center md:text-left">
-                    <h4 class="font-semibold text-lg mb-4 text-purple-400">Contacto</h4>
+                    <h4 class="font-semibold text-lg mb-4 text-blue-300">Contacto</h4>
                     <div class="space-y-2 text-gray-300">
                         <p>WhatsApp disponible</p>
                         <p>Modalidades: Presencial y Online</p>
