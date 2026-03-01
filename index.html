@@ -47,6 +47,11 @@
             -webkit-text-fill-color: transparent;
         }
         
+        /* FAQ Accordion */
+        .faq-item .faq-answer { display: none; }
+        .faq-item.faq-open .faq-answer { display: block; }
+        .faq-item.faq-open .faq-arrow { transform: rotate(180deg); }
+
         .glass-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
@@ -263,7 +268,8 @@
                     <a href="#inicio" class="text-gray-300 hover:text-green-400 font-medium transition-colors">Inicio</a>
                     <a href="#sobre-mi" class="text-gray-300 hover:text-green-400 font-medium transition-colors">Sobre Mí</a>
                     <a href="#servicios" class="text-gray-300 hover:text-green-400 font-medium transition-colors">Servicios</a>
-                    <a href="#videos" class="text-gray-300 hover:text-green-400 font-medium transition-colors">Videos</a>
+                    <a href="#testimonios" class="text-gray-300 hover:text-green-400 font-medium transition-colors">Testimonios</a>
+                    <a href="#faq" class="text-gray-300 hover:text-green-400 font-medium transition-colors">FAQ</a>
                     <a href="#investigacion" class="text-gray-300 hover:text-green-400 font-medium transition-colors">Investigación</a>
                     <a href="#contacto" class="text-gray-300 hover:text-green-400 font-medium transition-colors">Contacto</a>
                 </nav>
@@ -299,7 +305,8 @@
                 <a href="#inicio" class="block text-2xl font-display font-bold text-white hover:text-green-400 transition-colors mobile-menu-link">Inicio</a>
                 <a href="#sobre-mi" class="block text-2xl font-display font-bold text-white hover:text-green-400 transition-colors mobile-menu-link">Sobre Mí</a>
                 <a href="#servicios" class="block text-2xl font-display font-bold text-white hover:text-green-400 transition-colors mobile-menu-link">Servicios</a>
-                <a href="#videos" class="block text-2xl font-display font-bold text-white hover:text-green-400 transition-colors mobile-menu-link">Videos</a>
+                <a href="#testimonios" class="block text-2xl font-display font-bold text-white hover:text-green-400 transition-colors mobile-menu-link">Testimonios</a>
+                <a href="#faq" class="block text-2xl font-display font-bold text-white hover:text-green-400 transition-colors mobile-menu-link">FAQ</a>
                 <a href="#investigacion" class="block text-2xl font-display font-bold text-white hover:text-green-400 transition-colors mobile-menu-link">Investigación</a>
                 <a href="#contacto" class="block text-2xl font-display font-bold text-white hover:text-green-400 transition-colors mobile-menu-link">Contacto</a>
                 
@@ -749,6 +756,243 @@
                         Empezar Online
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo Funciona Section -->
+    <section id="como-funciona" class="section-light" style="background: linear-gradient(180deg, #f0f7ff 0%, #f8fafc 100%);">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center space-x-2 bg-green-100 rounded-full px-4 py-2 text-sm text-green-700 mb-4">
+                    <i data-lucide="list-checks" class="w-4 h-4"></i>
+                    <span>Proceso</span>
+                </div>
+                <h2 class="text-4xl lg:text-6xl font-display font-bold text-gray-900 mb-6">
+                    ¿Cómo 
+                    <span class="health-text">Funciona</span>?
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Un proceso simple, claro y adaptado a vos.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Paso 1 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <span class="text-white text-3xl font-bold">1</span>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-gray-900 mb-3">Agendá tu Consulta</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Elegí el horario que te quede cómodo desde nuestra agenda online. La consulta es por videollamada, desde donde estés.
+                    </p>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <span class="text-white text-3xl font-bold">2</span>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-gray-900 mb-3">Evaluación Personalizada</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        En la primera sesión evaluamos tu caso en detalle: respiración, deglución, musculatura orofacial y calidad del sueño.
+                    </p>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-teal-500 to-teal-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <span class="text-white text-3xl font-bold">3</span>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-gray-900 mb-3">Tu Plan de Tratamiento</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Recibís un plan de ejercicios diseñado para tu caso. Te acompaño sesión a sesión, ajustando según tu evolución.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://calendly.com/franciscaborrmann" target="_blank" 
+                   class="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 text-white rounded-full text-lg font-semibold hover:shadow-lg hover:scale-105 transition-all">
+                    <i data-lucide="calendar" class="w-5 h-5"></i>
+                    <span>Agendar Consulta</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios Section -->
+    <section id="testimonios" class="section-light">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center space-x-2 bg-blue-100 rounded-full px-4 py-2 text-sm text-blue-600 mb-4">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                    <span>Experiencias</span>
+                </div>
+                <h2 class="text-4xl lg:text-6xl font-display font-bold text-gray-900 mb-6">
+                    Lo que Dicen 
+                    <span class="health-text">Nuestros Pacientes</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Historias reales de personas que mejoraron su calidad de sueño y de vida.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Testimonio 1 -->
+                <div class="academic-doc">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-blue-600 font-bold text-lg">M</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">M.G.</p>
+                            <p class="text-sm text-gray-500">52 años — España</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <span class="text-amber-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed italic">
+                        "Mi médico me derivó con Francisca por la apnea. En pocas semanas ya notaba que dormía mejor y roncaba menos. Los ejercicios son simples y se hacen parte de la rutina."
+                    </p>
+                </div>
+
+                <!-- Testimonio 2 -->
+                <div class="academic-doc">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-emerald-600 font-bold text-lg">R</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">R.L.</p>
+                            <p class="text-sm text-gray-500">38 años — Argentina</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <span class="text-amber-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed italic">
+                        "No sabía que respirar mal de noche afectaba tanto mi día. Francisca me enseñó a corregir la postura de la lengua y la respiración. Hoy duermo de corrido y me despierto descansado."
+                    </p>
+                </div>
+
+                <!-- Testimonio 3 -->
+                <div class="academic-doc">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-teal-600 font-bold text-lg">C</span>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-900">C.A.</p>
+                            <p class="text-sm text-gray-500">45 años — Uruguay</p>
+                        </div>
+                    </div>
+                    <div class="flex mb-3">
+                        <span class="text-amber-400">★★★★★</span>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed italic">
+                        "Mi hijo de 8 años respiraba por la boca y dormía mal. Francisca trabajó con él de forma online y en pocas sesiones ya cerraba la boca al dormir. Excelente profesional."
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-center text-sm text-gray-400 mt-8">* Testimonios con iniciales para proteger la privacidad de los pacientes.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section-light" style="background: linear-gradient(180deg, #f8fafc 0%, #f0f7ff 100%);">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center space-x-2 bg-blue-100 rounded-full px-4 py-2 text-sm text-blue-600 mb-4">
+                    <i data-lucide="help-circle" class="w-4 h-4"></i>
+                    <span>Preguntas Frecuentes</span>
+                </div>
+                <h2 class="text-4xl lg:text-6xl font-display font-bold text-gray-900 mb-6">
+                    Preguntas 
+                    <span class="health-text">Frecuentes</span>
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="faq-item academic-doc cursor-pointer" onclick="this.classList.toggle('faq-open')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-gray-900 pr-4">¿Qué es la terapia miofuncional?</h3>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 faq-arrow transition-transform flex-shrink-0"></i>
+                    </div>
+                    <div class="faq-answer mt-3 text-gray-600 leading-relaxed hidden">
+                        La terapia miofuncional es una especialidad de la fonoaudiología que trabaja sobre los músculos de la cara, boca y garganta. Mediante ejercicios específicos, se mejora la función respiratoria, la deglución y la postura de la lengua y mandíbula. Es un abordaje no invasivo y complementario a otros tratamientos.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item academic-doc cursor-pointer" onclick="this.classList.toggle('faq-open')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-gray-900 pr-4">¿Sirve para la apnea del sueño?</h3>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 faq-arrow transition-transform flex-shrink-0"></i>
+                    </div>
+                    <div class="faq-answer mt-3 text-gray-600 leading-relaxed hidden">
+                        Sí. La terapia miofuncional es un tratamiento complementario reconocido para la apnea obstructiva del sueño. Trabajamos sobre la musculatura orofaríngea para mejorar la permeabilidad de la vía aérea durante el sueño. Puede utilizarse sola o en combinación con otros tratamientos según cada caso.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item academic-doc cursor-pointer" onclick="this.classList.toggle('faq-open')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-gray-900 pr-4">¿Las sesiones son por videollamada?</h3>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 faq-arrow transition-transform flex-shrink-0"></i>
+                    </div>
+                    <div class="faq-answer mt-3 text-gray-600 leading-relaxed hidden">
+                        Sí, las sesiones se realizan por videollamada. Esto permite atender pacientes de cualquier lugar. Solo necesitás una buena conexión a internet, cámara y un espacio tranquilo. La modalidad online es igual de efectiva ya que los ejercicios se enseñan, supervisan y corrigen en tiempo real.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item academic-doc cursor-pointer" onclick="this.classList.toggle('faq-open')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-gray-900 pr-4">¿Puede ayudar con los ronquidos?</h3>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 faq-arrow transition-transform flex-shrink-0"></i>
+                    </div>
+                    <div class="faq-answer mt-3 text-gray-600 leading-relaxed hidden">
+                        Sí, los ronquidos se producen por vibración de tejidos blandos en la vía aérea. La terapia miofuncional fortalece y tonifica esos tejidos, lo cual puede reducir significativamente los ronquidos. Muchos pacientes notan mejoría en las primeras semanas de ejercicios.
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item academic-doc cursor-pointer" onclick="this.classList.toggle('faq-open')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-gray-900 pr-4">¿Necesito derivación médica?</h3>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 faq-arrow transition-transform flex-shrink-0"></i>
+                    </div>
+                    <div class="faq-answer mt-3 text-gray-600 leading-relaxed hidden">
+                        No es requisito, aunque es recomendable. Si tenés un estudio de sueño (polisomnografía) o informes médicos previos, traelos a la consulta ya que son muy útiles para la evaluación. Trabajamos en equipo con médicos otorrinolaringólogos y especialistas en sueño.
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item academic-doc cursor-pointer" onclick="this.classList.toggle('faq-open')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-gray-900 pr-4">¿Atienden niños?</h3>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 faq-arrow transition-transform flex-shrink-0"></i>
+                    </div>
+                    <div class="faq-answer mt-3 text-gray-600 leading-relaxed hidden">
+                        Sí, la terapia miofuncional es muy efectiva en niños. Se trabajan hábitos como la respiración bucal, deglución atípica, uso prolongado de chupete o mamadera, y postura lingual. La intervención temprana puede prevenir problemas mayores en el desarrollo.
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="faq-item academic-doc cursor-pointer" onclick="this.classList.toggle('faq-open')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-gray-900 pr-4">¿Cómo agendo un turno?</h3>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 faq-arrow transition-transform flex-shrink-0"></i>
+                    </div>
+                    <div class="faq-answer mt-3 text-gray-600 leading-relaxed hidden">
+                        Podés agendar directamente desde nuestra web haciendo click en "Agendar Consulta", que te llevará a nuestro calendario online. También podés contactarnos por WhatsApp y te ayudamos a encontrar el mejor horario.
+                    </div>
                 </div>
             </div>
         </div>
