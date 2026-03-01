@@ -413,37 +413,38 @@
                     </div>
                 </div>
 
-                <!-- Hero Visual -->
+                <!-- Hero Visual — Photo Carousel -->
                 <div class="relative">
-                    <div>
-                        <div class="relative h-[500px] lg:h-[600px] w-full bg-white rounded-xl border border-gray-200 shadow-lg overflow-hidden">
-                            <!-- Simulación de imagen profesional moderna -->
-                            <div class="w-full h-full bg-gradient-to-br from-blue-50 via-white to-green-50 flex items-center justify-center relative">
-                                <div class="text-center text-gray-800 z-10">
-                                    <div class="w-32 h-32 bg-medical-blue/10 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
-                                        <i data-lucide="user-check" class="w-16 h-16 text-medical-blue"></i>
-                                    </div>
-                                    <p class="text-lg font-semibold">Lic. Francisca Borrmann</p>
-                                    <p class="text-sm text-gray-600">Especialista en Terapia Miofuncional</p>
+                    <div class="relative h-[500px] lg:h-[600px] w-full bg-white rounded-xl border border-gray-200 shadow-lg overflow-hidden">
+                        <!-- Carousel Images -->
+                        <div id="heroCarousel" class="w-full h-full relative">
+                            <img src="img/hero-principal.jpg" alt="Lic. Francisca Borrmann" class="hero-slide absolute inset-0 w-full h-full object-cover object-top opacity-100 transition-opacity duration-1000">
+                            <img src="img/congreso-1.jpg" alt="Francisca presentando en congreso" class="hero-slide absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-1000">
+                            <img src="img/congreso-faso.jpg" alt="Congreso FASO - Terapia Miofuncional" class="hero-slide absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-1000">
+                            <img src="img/congreso-pediatria.jpg" alt="Curso Apnea Obstructiva en Pediatría" class="hero-slide absolute inset-0 w-full h-full object-cover object-top opacity-0 transition-opacity duration-1000">
+                            <img src="img/congreso-2.jpg" alt="Francisca en presentación académica" class="hero-slide absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-1000">
+                        </div>
+
+                        <!-- Carousel dots -->
+                        <div class="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                            <button class="hero-dot w-2.5 h-2.5 rounded-full bg-white/80 transition-all" data-index="0"></button>
+                            <button class="hero-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all" data-index="1"></button>
+                            <button class="hero-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all" data-index="2"></button>
+                            <button class="hero-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all" data-index="3"></button>
+                            <button class="hero-dot w-2.5 h-2.5 rounded-full bg-white/40 transition-all" data-index="4"></button>
+                        </div>
+                        
+                        <!-- Quote Card -->
+                        <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl p-4 shadow-lg z-10">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="quote" class="w-6 h-6 text-white"></i>
                                 </div>
-                                
-                                <!-- Elementos decorativos -->
-                                <div class="absolute top-4 right-4 w-20 h-20 bg-blue-100/50 rounded-full"></div>
-                                <div class="absolute bottom-4 left-4 w-16 h-16 bg-green-100/50 rounded-full"></div>
-                            </div>
-                            
-                            <!-- Quote Card -->
-                            <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-xl p-4 shadow-lg">
-                                <div class="flex items-start space-x-3">
-                                    <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center">
-                                        <i data-lucide="quote" class="w-6 h-6 text-white"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-800 font-medium text-sm leading-relaxed">
-                                            "La respiración nasal es la base de un sueño reparador y una vida saludable."
-                                        </p>
-                                        <p class="text-medical-blue text-xs font-semibold mt-2">- Chequeado.com, 2025</p>
-                                    </div>
+                                <div>
+                                    <p class="text-gray-800 font-medium text-sm leading-relaxed">
+                                        "La respiración nasal es la base de un sueño reparador y una vida saludable."
+                                    </p>
+                                    <p class="text-blue-600 text-xs font-semibold mt-2">- Chequeado.com, 2025</p>
                                 </div>
                             </div>
                         </div>
@@ -1773,6 +1774,23 @@
     </div>
 
     <script>
+    // Hero Carousel
+    (function() {
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.hero-dot');
+        let current = 0;
+        
+        function showSlide(index) {
+            slides.forEach((s, i) => { s.style.opacity = i === index ? '1' : '0'; });
+            dots.forEach((d, i) => { d.style.background = i === index ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.4)'; });
+            current = index;
+        }
+        
+        dots.forEach(d => d.addEventListener('click', () => showSlide(parseInt(d.dataset.index))));
+        
+        setInterval(() => { showSlide((current + 1) % slides.length); }, 4000);
+    })();
+
     (function() {
         // FAQ Database
         const faqDB = [
