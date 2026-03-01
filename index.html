@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francisca Borrmann | Terapia Miofuncional Revolucionaria</title>
-    <meta name="description" content="Licenciada en Fonoaudiología especializada en Terapia Miofuncional. Alternativa natural al CPAP. Hospital Italiano + Especialización España.">
+    <title>Francisca Borrmann | Terapia Miofuncional Innovadora</title>
+    <meta name="description" content="Lic. Francisca Borrmann - Especialista en Terapia Miofuncional. Alternativa natural al CPAP. Hospital Italiano + Especialización España.">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,50 +17,57 @@
     
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #06b6d4;
-            --accent: #f59e0b;
-            --success: #10b981;
-            --text: #1f2937;
-            --text-light: #6b7280;
-            --bg: #fafafa;
+            --neon-green: #00ff88;
+            --neon-purple: #8b5cf6;
+            --neon-pink: #f472b6;
+            --neon-blue: #06b6d4;
+            --dark-bg: #0f0f23;
+            --dark-card: #1a1a2e;
+            --text-light: #e2e8f0;
         }
         
         html {
             scroll-behavior: smooth;
-            font-family: 'Outfit', system-ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
         }
         
         .font-display {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Sora', sans-serif;
         }
         
-        .gradient-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        .neon-gradient {
+            background: linear-gradient(135deg, var(--neon-green) 0%, var(--neon-blue) 50%, var(--neon-purple) 100%);
         }
         
-        .gradient-text {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        .neon-text {
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-pink));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
-        .card-modern {
-            background: rgba(255, 255, 255, 0.8);
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 24px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
         
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
+        .dark-glass-card {
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.2);
+        }
+        
+        .btn-neon {
+            background: linear-gradient(135deg, var(--neon-green), var(--neon-blue));
+            color: var(--dark-bg);
             padding: 16px 32px;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -68,236 +75,338 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+        .btn-neon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.6);
+            filter: brightness(1.1);
         }
         
-        .btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+        .btn-outline-neon {
+            background: transparent;
+            color: var(--neon-green);
+            border: 2px solid var(--neon-green);
             padding: 14px 30px;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 12px;
             transition: all 0.3s ease;
             cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
+        .btn-outline-neon:hover {
+            background: var(--neon-green);
+            color: var(--dark-bg);
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
         }
         
-        .floating-card {
+        .floating-element {
             animation: float 6s ease-in-out infinite;
         }
         
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
         }
         
-        .service-card {
-            background: white;
+        .service-card-modern {
+            background: rgba(26, 26, 46, 0.9);
             border-radius: 24px;
             padding: 32px;
-            border: 1px solid #e5e7eb;
-            transition: all 0.3s ease;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: all 0.5s ease;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(20px);
         }
         
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-        
-        .service-card::before {
+        .service-card-modern::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-blue), var(--neon-purple));
         }
         
-        .hero-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .service-card-modern:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--neon-green);
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.4);
+        }
+        
+        .hero-dark {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
             position: relative;
             overflow: hidden;
         }
         
-        .hero-bg::before {
+        .hero-dark::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 136, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.3) 0%, transparent 50%);
         }
         
-        .text-shadow {
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        .pulse-neon {
+            animation: pulse-neon 2s infinite;
         }
         
-        .pulse-animation {
-            animation: pulse 2s infinite;
+        @keyframes pulse-neon {
+            0%, 100% { 
+                box-shadow: 0 0 5px var(--neon-green), 0 0 10px var(--neon-green), 0 0 15px var(--neon-green);
+            }
+            50% { 
+                box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green), 0 0 30px var(--neon-green);
+            }
         }
         
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-        
-        .section-modern {
+        .section-dark {
+            background: var(--dark-bg);
+            color: var(--text-light);
             padding: 80px 24px;
         }
         
-        .icon-gradient {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .section-light {
+            background: #fafafa;
+            padding: 80px 24px;
+        }
+        
+        .video-placeholder {
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            border: 2px dashed var(--neon-purple);
+            border-radius: 16px;
+            padding: 48px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: var(--neon-purple);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+        
+        .academic-doc {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .academic-doc:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(139, 92, 246, 0.15);
+            border-color: var(--neon-purple);
+        }
+        
+        /* Mobile menu styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-content {
+            padding: 80px 24px 24px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
     </style>
 </head>
-<body class="antialiased bg-gray-50">
+<body class="antialiased">
     <!-- Header -->
-    <header id="header" class="fixed w-full z-50 bg-white/90 backdrop-blur-lg border-b border-gray-200/50 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-6">
+    <header id="header" class="fixed w-full z-50 bg-black/90 backdrop-blur-lg border-b border-purple-500/30 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center justify-between py-4">
                 <!-- Logo -->
                 <div class="flex items-center space-x-3">
-                    <div class="w-12 h-12 gradient-primary rounded-2xl flex items-center justify-center">
-                        <span class="text-white font-bold text-lg font-display">FB</span>
+                    <div class="w-12 h-12 neon-gradient rounded-2xl flex items-center justify-center pulse-neon">
+                        <span class="text-black font-bold text-lg font-display">FB</span>
                     </div>
                     <div>
-                        <h1 class="text-xl font-display font-bold text-gray-900">
+                        <h1 class="text-xl font-display font-bold text-white">
                             Francisca Borrmann
                         </h1>
-                        <p class="text-sm text-gray-600">Terapia Miofuncional</p>
+                        <p class="text-sm neon-text">Terapia Miofuncional</p>
                     </div>
                 </div>
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#inicio" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors">Inicio</a>
-                    <a href="#sobre-mi" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors">Sobre Mí</a>
-                    <a href="#servicios" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors">Servicios</a>
-                    <a href="#contacto" class="text-gray-700 hover:text-indigo-600 font-medium transition-colors">Contacto</a>
+                    <a href="#inicio" class="text-gray-300 hover:text-green-400 font-medium transition-colors">Inicio</a>
+                    <a href="#sobre-mi" class="text-gray-300 hover:text-green-400 font-medium transition-colors">Sobre Mí</a>
+                    <a href="#servicios" class="text-gray-300 hover:text-green-400 font-medium transition-colors">Servicios</a>
+                    <a href="#videos" class="text-gray-300 hover:text-green-400 font-medium transition-colors">Videos</a>
+                    <a href="#investigacion" class="text-gray-300 hover:text-green-400 font-medium transition-colors">Investigación</a>
+                    <a href="#contacto" class="text-gray-300 hover:text-green-400 font-medium transition-colors">Contacto</a>
                 </nav>
 
                 <!-- CTA Buttons -->
                 <div class="hidden md:flex items-center space-x-4">
-                    <a href="https://wa.me/5492984931873" target="_blank" class="text-indigo-600 hover:text-indigo-700 font-medium flex items-center gap-2 transition-colors">
+                    <a href="https://wa.me/5492984931873" target="_blank" class="text-green-400 hover:text-green-300 font-medium flex items-center gap-2 transition-colors">
                         <i data-lucide="phone" class="w-4 h-4"></i>
                         WhatsApp
                     </a>
-                    <a href="#contacto" class="btn-primary">
+                    <a href="#contacto" class="btn-neon">
                         <i data-lucide="calendar" class="w-4 h-4"></i>
-                        Agendar Cita
+                        Consulta
                     </a>
                 </div>
 
                 <!-- Mobile menu button -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-gray-700 hover:bg-gray-100 transition-colors">
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-gray-300 hover:bg-purple-500/20 transition-colors">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
     </header>
 
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-content">
+            <button id="mobile-menu-close" class="absolute top-6 right-6 text-white hover:text-red-400 transition-colors">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            
+            <nav class="space-y-8 text-center">
+                <a href="#inicio" class="block text-2xl font-display font-bold text-white hover:text-green-400 transition-colors mobile-menu-link">Inicio</a>
+                <a href="#sobre-mi" class="block text-2xl font-display font-bold text-white hover:text-green-400 transition-colors mobile-menu-link">Sobre Mí</a>
+                <a href="#servicios" class="block text-2xl font-display font-bold text-white hover:text-green-400 transition-colors mobile-menu-link">Servicios</a>
+                <a href="#videos" class="block text-2xl font-display font-bold text-white hover:text-green-400 transition-colors mobile-menu-link">Videos</a>
+                <a href="#investigacion" class="block text-2xl font-display font-bold text-white hover:text-green-400 transition-colors mobile-menu-link">Investigación</a>
+                <a href="#contacto" class="block text-2xl font-display font-bold text-white hover:text-green-400 transition-colors mobile-menu-link">Contacto</a>
+                
+                <div class="pt-8 space-y-4">
+                    <a href="https://wa.me/5492984931873" target="_blank" class="btn-outline-neon">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                        WhatsApp
+                    </a>
+                    <a href="#contacto" class="btn-neon mobile-menu-link">
+                        <i data-lucide="calendar" class="w-5 h-5"></i>
+                        Agendar Consulta
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <section id="inicio" class="pt-20 hero-bg text-white relative min-h-screen flex items-center">
-        <div class="max-w-6xl mx-auto px-6 py-20 relative z-10">
+    <section id="inicio" class="pt-20 hero-dark text-white relative min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-6 py-20 relative z-10">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <!-- Text Content -->
                 <div class="space-y-8">
                     <div class="space-y-6">
-                        <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-sm">
-                            <div class="w-2 h-2 bg-green-400 rounded-full pulse-animation"></div>
-                            <span>Disponible Online</span>
+                        <div class="inline-flex items-center space-x-2 glass-card px-4 py-2 text-sm">
+                            <div class="w-3 h-3 bg-green-400 rounded-full pulse-neon"></div>
+                            <span>Disponible Online Worldwide</span>
                         </div>
                         
-                        <h1 class="text-5xl lg:text-7xl font-display font-bold leading-tight text-shadow">
-                            Terapia 
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
-                                Miofuncional
-                            </span>
-                            Revolucionaria
+                        <h1 class="text-5xl lg:text-7xl font-display font-bold leading-tight">
+                            <span class="neon-text">Revolución</span><br>
+                            en Terapia<br>
+                            Miofuncional
                         </h1>
                         
-                        <p class="text-xl lg:text-2xl text-white/90 leading-relaxed font-light">
-                            ¿Cansado del CPAP? Descubre la alternativa natural que está 
-                            <strong>cambiando la vida</strong> de miles de personas con apnea del sueño.
+                        <p class="text-xl lg:text-2xl text-gray-300 leading-relaxed">
+                            ¿Harto del CPAP? Descubre la terapia que está <strong className="neon-text">transformando vidas</strong> 
+                            sin máquinas ni dependencias.
                         </p>
                     </div>
 
-                    <!-- Credenciales modernas -->
-                    <div class="card-modern p-6">
-                        <h3 class="font-display font-bold text-lg text-gray-900 mb-4">
-                            🏆 Lic. Francisca Borrmann
+                    <!-- Credenciales Futuristas -->
+                    <div class="glass-card p-6">
+                        <h3 class="font-display font-bold text-lg mb-4 neon-text">
+                            Lic. Francisca Borrmann
                         </h3>
-                        <div class="grid grid-cols-3 gap-4 text-center">
+                        <div class="grid grid-cols-3 gap-4 text-center text-sm">
                             <div>
-                                <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-2">
+                                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center mx-auto mb-2">
                                     <i data-lucide="building-2" class="w-6 h-6 text-white"></i>
                                 </div>
-                                <p class="font-semibold text-gray-900 text-sm">Hospital Italiano</p>
-                                <p class="text-gray-600 text-xs">Buenos Aires</p>
+                                <p class="font-semibold text-white">Hospital Italiano</p>
+                                <p class="text-gray-400 text-xs">Buenos Aires</p>
                             </div>
                             <div>
                                 <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-2">
                                     <i data-lucide="moon" class="w-6 h-6 text-white"></i>
                                 </div>
-                                <p class="font-semibold text-gray-900 text-sm">IES</p>
-                                <p class="text-gray-600 text-xs">Instituto del Sueño</p>
+                                <p class="font-semibold text-white">IES</p>
+                                <p class="text-gray-400 text-xs">Instituto del Sueño</p>
                             </div>
                             <div>
-                                <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-2">
+                                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-2">
                                     <i data-lucide="globe" class="w-6 h-6 text-white"></i>
                                 </div>
-                                <p class="font-semibold text-gray-900 text-sm">España</p>
-                                <p class="text-gray-600 text-xs">Especialización</p>
+                                <p class="font-semibold text-white">España</p>
+                                <p class="text-gray-400 text-xs">Especialización</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#contacto" class="btn-primary text-lg px-8 py-4">
-                            <i data-lucide="zap" class="w-5 h-5"></i>
-                            Empezar Ahora
+                        <a href="#contacto" class="btn-neon text-lg px-8 py-4">
+                            <i data-lucide="heart" class="w-5 h-5"></i>
+                            Mejorar mi Salud
                         </a>
-                        <a href="https://wa.me/5492984931873" target="_blank" class="btn-secondary text-lg px-8 py-4">
+                        <a href="https://wa.me/5492984931873" target="_blank" class="btn-outline-neon text-lg px-8 py-4">
                             <i data-lucide="message-circle" class="w-5 h-5"></i>
-                            Consulta Gratis
+                            Consulta Inmediata
                         </a>
                     </div>
 
                     <!-- Social Proof -->
-                    <div class="flex items-center space-x-6 text-sm text-white/80">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-8 space-y-4 sm:space-y-0 text-sm text-gray-400">
                         <div class="flex items-center space-x-2">
                             <div class="flex -space-x-2">
-                                <div class="w-8 h-8 bg-gradient-to-br from-pink-500 to-violet-600 rounded-full border-2 border-white"></div>
-                                <div class="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full border-2 border-white"></div>
-                                <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-teal-600 rounded-full border-2 border-white"></div>
+                                <div class="w-8 h-8 bg-gradient-to-br from-pink-500 to-violet-600 rounded-full border-2 border-purple-500"></div>
+                                <div class="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full border-2 border-purple-500"></div>
+                                <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-teal-600 rounded-full border-2 border-purple-500"></div>
                             </div>
-                            <span>+200 pacientes recuperados</span>
+                            <span>+200 vidas transformadas</span>
                         </div>
-                        <div class="flex items-center space-x-1">
+                        <div class="flex items-center space-x-2">
                             <div class="flex space-x-1">
                                 <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
                                 <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
@@ -305,61 +414,66 @@
                                 <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
                                 <i data-lucide="star" class="w-4 h-4 fill-yellow-400 text-yellow-400"></i>
                             </div>
-                            <span>5.0 de satisfacción</span>
+                            <span>Resultados reales</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Hero Visual -->
                 <div class="relative">
-                    <div class="floating-card">
-                        <div class="relative h-[500px] lg:h-[600px] w-full card-modern overflow-hidden">
-                            <img
-                                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                                alt="Francisca Borrmann - Especialista en Terapia Miofuncional"
-                                class="w-full h-full object-cover"
-                            />
+                    <div class="floating-element">
+                        <div class="relative h-[500px] lg:h-[600px] w-full glass-card overflow-hidden">
+                            <!-- Simulación de imagen profesional moderna -->
+                            <div class="w-full h-full bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 flex items-center justify-center relative">
+                                <div class="text-center text-white z-10">
+                                    <div class="w-32 h-32 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                                        <i data-lucide="user-check" class="w-16 h-16"></i>
+                                    </div>
+                                    <p class="text-lg font-semibold">Lic. Francisca Borrmann</p>
+                                    <p class="text-sm opacity-80">Especialista en Terapia Miofuncional</p>
+                                </div>
+                                
+                                <!-- Elementos decorativos -->
+                                <div class="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full"></div>
+                                <div class="absolute bottom-4 left-4 w-16 h-16 bg-white/10 rounded-full"></div>
+                            </div>
                             
-                            <!-- Floating Quote Card -->
-                            <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-2xl border border-white/20">
+                            <!-- Quote Card */}
+                            <div class="absolute bottom-6 left-6 right-6 dark-glass-card p-4">
                                 <div class="flex items-start space-x-3">
                                     <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center">
                                         <i data-lucide="quote" class="w-6 h-6 text-white"></i>
                                     </div>
                                     <div>
-                                        <p class="text-gray-900 font-medium text-sm leading-relaxed">
-                                            "La respiración nasal es la forma más saludable de respirar y la base de un sueño reparador."
+                                        <p class="text-white font-medium text-sm leading-relaxed">
+                                            "La respiración nasal es la base de un sueño reparador y una vida saludable."
                                         </p>
-                                        <p class="text-indigo-600 text-xs font-semibold mt-2">- Chequeado.com, 2025</p>
+                                        <p class="text-green-400 text-xs font-semibold mt-2">- Chequeado.com, 2025</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Floating Elements -->
-                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-pink-500 to-violet-600 rounded-3xl opacity-20 animate-bounce"></div>
-                    <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl opacity-20 animate-pulse"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="sobre-mi" class="section-modern bg-white">
-        <div class="max-w-6xl mx-auto">
+    <section id="sobre-mi" class="section-light">
+        <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <div class="inline-flex items-center space-x-2 bg-indigo-50 rounded-full px-4 py-2 text-sm text-indigo-600 mb-4">
-                    <i data-lucide="heart" class="w-4 h-4"></i>
+                <div class="inline-flex items-center space-x-2 bg-purple-100 rounded-full px-4 py-2 text-sm text-purple-600 mb-4">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
                     <span>Sobre Mí</span>
                 </div>
                 <h2 class="text-4xl lg:text-6xl font-display font-bold text-gray-900 mb-6">
-                    La Revolución del 
-                    <span class="gradient-text">Sueño Natural</span>
+                    La Profesional que está 
+                    <span class="neon-text">Revolucionando</span> el Sueño
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    Soy Francisca, especialista en cambiar vidas a través de técnicas innovadoras 
-                    que tu médico tradicional probablemente no conoce.
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    Soy Francisca Borrmann, Licenciada en Fonoaudiología especializada en terapia miofuncional avanzada. 
+                    Mi enfoque: restaurar la función natural de tu respiración y deglución para mejorar tu calidad de vida.
                 </p>
             </div>
 
@@ -368,84 +482,86 @@
                 <div class="space-y-8">
                     <div class="space-y-6">
                         <h3 class="text-3xl font-display font-bold text-gray-900">
-                            🚀 Lic. Francisca Borrmann
+                            Lic. Francisca Borrmann
                         </h3>
                         <p class="text-lg text-gray-700 leading-relaxed">
-                            Licenciada en Fonoaudiología con especialización avanzada en España y experiencia 
-                            en las instituciones más prestigiosas de Argentina. Mi misión es simple: 
-                            <strong>que puedas dormir sin máquinas</strong> y despiertes con energía real.
+                            Con especialización internacional en España y experiencia en las instituciones 
+                            más prestigiosas de Argentina, desarrollo tratamientos que van más allá de las 
+                            soluciones tradicionales.
                         </p>
                         <p class="text-lg text-gray-700 leading-relaxed">
-                            Mientras otros te venden aparatos costosos, yo te enseño a usar el poder 
-                            de tu propio cuerpo. <strong>Resultados comprobados, sin efectos secundarios, 
-                            sin dependencia tecnológica.</strong>
+                            <strong>Mi enfoque:</strong> Trabajo con técnicas naturales que entrenan 
+                            los músculos involucrados en la respiración y deglución. Tratamiento 
+                            personalizado sin dependencias externas, enfocado en tu bienestar integral.
                         </p>
                     </div>
 
-                    <!-- Stats -->
+                    <!-- Stats Mejoradas */}
                     <div class="grid grid-cols-2 gap-6">
-                        <div class="text-center p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl">
-                            <div class="text-3xl font-bold gradient-text mb-2">90%</div>
-                            <div class="text-gray-600 text-sm">Mejora en apnea del sueño</div>
+                        <div class="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl">
+                            <div class="text-3xl font-bold neon-text mb-2">Resultados</div>
+                            <div class="text-gray-600 text-sm">Comprobados</div>
                         </div>
-                        <div class="text-center p-6 bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl">
-                            <div class="text-3xl font-bold gradient-text mb-2">85%</div>
-                            <div class="text-gray-600 text-sm">Eliminación de ronquidos</div>
+                        <div class="text-center p-6 bg-gradient-to-br from-cyan-50 to-blue-100 rounded-2xl">
+                            <div class="text-3xl font-bold neon-text mb-2">Natural</div>
+                            <div class="text-gray-600 text-sm">Sin máquinas</div>
                         </div>
-                        <div class="text-center p-6 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl">
-                            <div class="text-3xl font-bold gradient-text mb-2">6-12</div>
-                            <div class="text-gray-600 text-sm">Semanas promedio</div>
+                        <div class="text-center p-6 bg-gradient-to-br from-emerald-50 to-teal-100 rounded-2xl">
+                            <div class="text-3xl font-bold neon-text mb-2">Personal</div>
+                            <div class="text-gray-600 text-sm">Cada caso único</div>
                         </div>
-                        <div class="text-center p-6 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl">
-                            <div class="text-3xl font-bold gradient-text mb-2">200+</div>
-                            <div class="text-gray-600 text-sm">Vidas transformadas</div>
+                        <div class="text-center p-6 bg-gradient-to-br from-amber-50 to-orange-100 rounded-2xl">
+                            <div class="text-3xl font-bold neon-text mb-2">200+</div>
+                            <div class="text-gray-600 text-sm">Vidas cambiadas</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Visual -->
                 <div class="relative">
-                    <div class="h-[500px] w-full card-modern overflow-hidden">
-                        <img
-                            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                            alt="Francisca Borrmann - Profesional innovadora"
-                            class="w-full h-full object-cover"
-                        />
+                    <div class="h-[500px] w-full bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 rounded-2xl flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <div class="w-40 h-40 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+                                <i data-lucide="brain" class="w-20 h-20"></i>
+                            </div>
+                            <p class="text-xl font-semibold mb-2">Especialista en Innovación</p>
+                            <p class="text-sm opacity-80">Terapia Miofuncional Avanzada</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Credentials Grid Moderna -->
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="service-card text-center">
-                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div class="academic-doc text-center group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                         <i data-lucide="building-2" class="w-8 h-8 text-white"></i>
                     </div>
                     <h4 class="font-display font-bold text-xl text-gray-900 mb-3">Hospital Italiano Buenos Aires</h4>
-                    <p class="text-gray-600 mb-4">50+ años de experiencia institucional. Centro de referencia en Otorrinolaringología.</p>
-                    <div class="inline-flex items-center text-indigo-600 font-semibold text-sm">
-                        <span>70+ especialistas</span>
+                    <p class="text-gray-600 mb-4">Más de 50 años de experiencia institucional. Centro de referencia en Otorrinolaringología de Argentina.</p>
+                    <div class="inline-flex items-center text-purple-600 font-semibold text-sm">
+                        <span>Equipo de 70+ especialistas</span>
                     </div>
                 </div>
                 
-                <div class="service-card text-center">
-                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div class="academic-doc text-center group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                         <i data-lucide="moon" class="w-8 h-8 text-white"></i>
                     </div>
-                    <h4 class="font-display font-bold text-xl text-gray-900 mb-3">Instituto del Sueño (IES)</h4>
-                    <p class="text-gray-600 mb-4">Colaboración directa con Dr. Sebastián López. Vanguardia en trastornos del sueño.</p>
+                    <h4 class="font-display font-bold text-xl text-gray-900 mb-3">Instituto de Enfermedades del Sueño</h4>
+                    <p class="text-gray-600 mb-4">Colaboración directa con Dr. Sebastián López. Vanguardia en investigación y tratamiento de trastornos del sueño.</p>
                     <div class="inline-flex items-center text-cyan-600 font-semibold text-sm">
                         <span>Especialización avanzada</span>
                     </div>
                 </div>
                 
-                <div class="service-card text-center">
-                    <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div class="academic-doc text-center group">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                         <i data-lucide="globe" class="w-8 h-8 text-white"></i>
                     </div>
                     <h4 class="font-display font-bold text-xl text-gray-900 mb-3">Formación Internacional</h4>
-                    <p class="text-gray-600 mb-4">Especialización en Terapia Miofuncional en España. Técnicas europeas avanzadas.</p>
-                    <div class="inline-flex items-center text-amber-600 font-semibold text-sm">
+                    <p class="text-gray-600 mb-4">Especialización en Terapia Miofuncional en España. Técnicas europeas de vanguardia aplicadas localmente.</p>
+                    <div class="inline-flex items-center text-green-600 font-semibold text-sm">
                         <span>Reconocimiento mediático</span>
                     </div>
                 </div>
@@ -454,237 +570,499 @@
     </section>
 
     <!-- Services Section -->
-    <section id="servicios" class="section-modern bg-gray-50">
-        <div class="max-w-6xl mx-auto">
+    <section id="servicios" class="section-dark">
+        <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <div class="inline-flex items-center space-x-2 bg-indigo-50 rounded-full px-4 py-2 text-sm text-indigo-600 mb-4">
+                <div class="inline-flex items-center space-x-2 glass-card px-4 py-2 text-sm text-green-400 mb-4">
                     <i data-lucide="zap" class="w-4 h-4"></i>
                     <span>Servicios</span>
                 </div>
-                <h2 class="text-4xl lg:text-6xl font-display font-bold text-gray-900 mb-6">
+                <h2 class="text-4xl lg:text-6xl font-display font-bold text-white mb-6">
                     Transforma tu 
-                    <span class="gradient-text">Sueño</span> 
+                    <span class="neon-text">Sueño</span> 
                     para Siempre
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Métodos revolucionarios que funcionan cuando todo lo demás falla. 
-                    Sin máquinas, sin dependencias, solo resultados reales.
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Métodos revolucionarios personalizados para cada paciente. 
+                    Sin tiempos fijos, porque cada persona es única y merece un enfoque individual.
                 </p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-8 mb-16">
                 <!-- Service 1: Sleep Apnea -->
-                <div class="service-card group">
+                <div class="service-card-modern group">
                     <div class="flex items-start space-x-4 mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center pulse-neon">
                             <i data-lucide="moon" class="w-8 h-8 text-white"></i>
                         </div>
                         <div>
-                            <h3 class="font-display font-bold text-2xl text-gray-900 mb-2">
-                                🔥 Adiós al CPAP
+                            <h3 class="font-display font-bold text-2xl text-white mb-2">
+                                🔥 Libertad del CPAP
                             </h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                La alternativa natural que está revolucionando el tratamiento de apnea del sueño. 
-                                Enseño a tu cuerpo a respirar correctamente mientras duermes.
+                            <p class="text-gray-300 leading-relaxed">
+                                La revolución que está liberando a miles de personas del CPAP. 
+                                Entreno tu cuerpo para respirar correctamente de forma natural.
                             </p>
                         </div>
                     </div>
                     
                     <div class="space-y-4 mb-6">
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                            <div class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-black"></i>
                             </div>
-                            <span class="text-gray-700">Fortalecimiento muscular específico</span>
+                            <span class="text-gray-300">Fortalecimiento muscular específico</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                            <div class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-black"></i>
                             </div>
-                            <span class="text-gray-700">Técnicas de respiración avanzadas</span>
+                            <span class="text-gray-300">Técnicas de respiración avanzadas</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                            <div class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-black"></i>
                             </div>
-                            <span class="text-gray-700">Seguimiento personalizado</span>
+                            <span class="text-gray-300">Seguimiento personalizado</span>
                         </div>
                     </div>
                     
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="text-sm text-gray-500">8-12 semanas</div>
-                        <div class="font-bold text-purple-600 text-lg">90% de éxito</div>
+                    <div class="text-center mb-6">
+                        <div class="font-bold text-green-400 text-lg">Resultados comprobados sin dependencias</div>
                     </div>
                     
-                    <button class="w-full btn-primary justify-center group-hover:scale-105 transition-transform">
-                        Quiero Liberarme del CPAP
+                    <button class="w-full btn-neon justify-center group-hover:scale-105 transition-transform">
+                        Quiero Ser Libre
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </button>
                 </div>
 
                 <!-- Service 2: Snoring -->
-                <div class="service-card group">
+                <div class="service-card-modern group">
                     <div class="flex items-start space-x-4 mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center pulse-neon">
                             <i data-lucide="wind" class="w-8 h-8 text-white"></i>
                         </div>
                         <div>
-                            <h3 class="font-display font-bold text-2xl text-gray-900 mb-2">
-                                🎯 Silencio Nocturno
+                            <h3 class="font-display font-bold text-2xl text-white mb-2">
+                                🎯 Silencio Total
                             </h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                Elimina los ronquidos para siempre. Tu pareja te lo agradecerá y 
-                                tú despertarás más descansado que nunca.
+                            <p class="text-gray-300 leading-relaxed">
+                                Elimina los ronquidos definitivamente. Tu pareja dormirá mejor 
+                                y tú despertarás más descansado que nunca.
                             </p>
                         </div>
                     </div>
                     
                     <div class="space-y-4 mb-6">
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                            <div class="w-6 h-6 bg-cyan-400 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-black"></i>
                             </div>
-                            <span class="text-gray-700">Ejercicios de lengua y garganta</span>
+                            <span class="text-gray-300">Ejercicios específicos de lengua y garganta</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                            <div class="w-6 h-6 bg-cyan-400 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-black"></i>
                             </div>
-                            <span class="text-gray-700">Reeducación respiratoria</span>
+                            <span class="text-gray-300">Reeducación respiratoria completa</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                            <div class="w-6 h-6 bg-cyan-400 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-black"></i>
                             </div>
-                            <span class="text-gray-700">Higiene del sueño optimizada</span>
+                            <span class="text-gray-300">Optimización del sueño</span>
                         </div>
                     </div>
                     
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="text-sm text-gray-500">6-10 semanas</div>
-                        <div class="font-bold text-cyan-600 text-lg">85% sin ronquidos</div>
+                    <div class="text-center mb-6">
+                        <div class="font-bold text-cyan-400 text-lg">Noches silenciosas garantizadas</div>
                     </div>
                     
-                    <button class="w-full btn-primary justify-center group-hover:scale-105 transition-transform">
-                        Quiero Dormir en Silencio
+                    <button class="w-full btn-neon justify-center group-hover:scale-105 transition-transform">
+                        Dormir en Paz
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </button>
                 </div>
 
                 <!-- Service 3: Swallowing -->
-                <div class="service-card group">
+                <div class="service-card-modern group">
                     <div class="flex items-start space-x-4 mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center pulse-neon">
                             <i data-lucide="heart" class="w-8 h-8 text-white"></i>
                         </div>
                         <div>
-                            <h3 class="font-display font-bold text-2xl text-gray-900 mb-2">
+                            <h3 class="font-display font-bold text-2xl text-white mb-2">
                                 ⚡ Deglución Perfecta
                             </h3>
-                            <p class="text-gray-600 leading-relaxed">
+                            <p class="text-gray-300 leading-relaxed">
                                 Rehabilitación completa de la deglución. Come con confianza, 
-                                mejora tu digestión y calidad de vida.
+                                mejora tu digestión y transforma tu calidad de vida.
                             </p>
                         </div>
                     </div>
                     
                     <div class="space-y-4 mb-6">
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                            <div class="w-6 h-6 bg-emerald-400 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-black"></i>
                             </div>
-                            <span class="text-gray-700">Evaluación videofluoroscópica</span>
+                            <span class="text-gray-300">Evaluación videofluoroscópica</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                            <div class="w-6 h-6 bg-emerald-400 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-black"></i>
                             </div>
-                            <span class="text-gray-700">Fortalecimiento muscular</span>
+                            <span class="text-gray-300">Fortalecimiento muscular dirigido</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                            <div class="w-6 h-6 bg-emerald-400 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-black"></i>
                             </div>
-                            <span class="text-gray-700">Plan alimentario adaptado</span>
+                            <span class="text-gray-300">Plan alimentario personalizado</span>
                         </div>
                     </div>
                     
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="text-sm text-gray-500">4-8 semanas</div>
-                        <div class="font-bold text-emerald-600 text-lg">95% mejora</div>
+                    <div class="text-center mb-6">
+                        <div class="font-bold text-emerald-400 text-lg">Recuperación funcional total</div>
                     </div>
                     
-                    <button class="w-full btn-primary justify-center group-hover:scale-105 transition-transform">
-                        Mejorar mi Deglución
+                    <button class="w-full btn-neon justify-center group-hover:scale-105 transition-transform">
+                        Recuperar mi Deglución
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </button>
                 </div>
 
                 <!-- Service 4: Online -->
-                <div class="service-card group">
+                <div class="service-card-modern group">
                     <div class="flex items-start space-x-4 mb-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center pulse-neon">
                             <i data-lucide="video" class="w-8 h-8 text-white"></i>
                         </div>
                         <div>
-                            <h3 class="font-display font-bold text-2xl text-gray-900 mb-2">
-                                🌍 Consulta Global
+                            <h3 class="font-display font-bold text-2xl text-white mb-2">
+                                🌍 Alcance Mundial
                             </h3>
-                            <p class="text-gray-600 leading-relaxed">
-                                Desde cualquier país. La misma calidad, resultados comprobados. 
-                                La distancia no es excusa para un sueño perfecto.
+                            <p class="text-gray-300 leading-relaxed">
+                                Terapia miofuncional accesible desde cualquier ubicación. 
+                                Atención profesional personalizada para tu bienestar y recuperación.
                             </p>
                         </div>
                     </div>
                     
                     <div class="space-y-4 mb-6">
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                            <div class="w-6 h-6 bg-amber-400 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-black"></i>
                             </div>
-                            <span class="text-gray-700">Evaluación completa por video</span>
+                            <span class="text-gray-300">Evaluación completa por videollamada</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                            <div class="w-6 h-6 bg-amber-400 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-black"></i>
                             </div>
-                            <span class="text-gray-700">Material exclusivo personalizado</span>
+                            <span class="text-gray-300">Material exclusivo personalizado</span>
                         </div>
                         <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                                <i data-lucide="check" class="w-4 h-4 text-green-600"></i>
+                            <div class="w-6 h-6 bg-amber-400 rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-4 h-4 text-black"></i>
                             </div>
-                            <span class="text-gray-700">Seguimiento semanal garantizado</span>
+                            <span class="text-gray-300">Seguimiento continuo garantizado</span>
                         </div>
                     </div>
                     
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="text-sm text-gray-500">Horario flexible</div>
-                        <div class="font-bold text-amber-600 text-lg">Alcance mundial</div>
+                    <div class="text-center mb-6">
+                        <div class="font-bold text-amber-400 text-lg">Tecnología sin fronteras</div>
                     </div>
                     
-                    <button class="w-full btn-primary justify-center group-hover:scale-105 transition-transform">
-                        Empezar Online Ahora
+                    <button class="w-full btn-neon justify-center group-hover:scale-105 transition-transform">
+                        Empezar Online
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </button>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- CTA Section -->
-            <div class="text-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-3xl p-12">
-                <h3 class="text-3xl lg:text-4xl font-display font-bold mb-4">
-                    ¿Listo para Cambiar tu Vida?
-                </h3>
-                <p class="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">
-                    No sigas perdiendo noches de sueño. La solución que buscabas está aquí, 
-                    respaldada por ciencia y resultados reales.
+    <!-- Videos Section -->
+    <section id="videos" class="section-light">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center space-x-2 bg-purple-100 rounded-full px-4 py-2 text-sm text-purple-600 mb-4">
+                    <i data-lucide="play" class="w-4 h-4"></i>
+                    <span>Videos Terapéuticos</span>
+                </div>
+                <h2 class="text-4xl lg:text-6xl font-display font-bold text-gray-900 mb-6">
+                    Biblioteca de 
+                    <span class="neon-text">Ejercicios</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    Videos paso a paso para que practiques desde casa. 
+                    Cada ejercicio diseñado específicamente para tu condición.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#contacto" class="bg-white text-indigo-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-full transition-all duration-300 hover:scale-105">
-                        Agendar Evaluación Inicial
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Video Placeholder 1 -->
+                <div class="video-placeholder">
+                    <div class="relative z-10">
+                        <i data-lucide="play-circle" class="w-16 h-16 text-purple-400 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Ejercicios para Apnea</h3>
+                        <p class="text-gray-300 text-sm mb-4">Fortalecimiento específico de músculos respiratorios</p>
+                        <div class="inline-flex items-center text-purple-400 text-sm font-semibold">
+                            <i data-lucide="clock" class="w-4 h-4 mr-2"></i>
+                            <span>Serie completa</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Placeholder 2 -->
+                <div class="video-placeholder">
+                    <div class="relative z-10">
+                        <i data-lucide="play-circle" class="w-16 h-16 text-cyan-400 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Técnicas Anti-Ronquidos</h3>
+                        <p class="text-gray-300 text-sm mb-4">Ejercicios de lengua y posicionamiento nocturno</p>
+                        <div class="inline-flex items-center text-cyan-400 text-sm font-semibold">
+                            <i data-lucide="clock" class="w-4 h-4 mr-2"></i>
+                            <span>Rutina diaria</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Placeholder 3 */}
+                <div class="video-placeholder">
+                    <div class="relative z-10">
+                        <i data-lucide="play-circle" class="w-16 h-16 text-emerald-400 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Deglución Segura</h3>
+                        <p class="text-gray-300 text-sm mb-4">Rehabilitación paso a paso de la deglución</p>
+                        <div class="inline-flex items-center text-emerald-400 text-sm font-semibold">
+                            <i data-lucide="clock" class="w-4 h-4 mr-2"></i>
+                            <span>Progresivo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Placeholder 4 -->
+                <div class="video-placeholder">
+                    <div class="relative z-10">
+                        <i data-lucide="play-circle" class="w-16 h-16 text-amber-400 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Respiración Nasal</h3>
+                        <p class="text-gray-300 text-sm mb-4">Técnicas avanzadas de respiración funcional</p>
+                        <div class="inline-flex items-center text-amber-400 text-sm font-semibold">
+                            <i data-lucide="clock" class="w-4 h-4 mr-2"></i>
+                            <span>Fundamentos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Placeholder 5 -->
+                <div class="video-placeholder">
+                    <div class="relative z-10">
+                        <i data-lucide="play-circle" class="w-16 h-16 text-pink-400 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Evaluación Inicial</h3>
+                        <p class="text-gray-300 text-sm mb-4">Cómo realizar tu autoevaluación correctamente</p>
+                        <div class="inline-flex items-center text-pink-400 text-sm font-semibold">
+                            <i data-lucide="clock" class="w-4 h-4 mr-2"></i>
+                            <span>Diagnóstico</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Placeholder 6 -->
+                <div class="video-placeholder">
+                    <div class="relative z-10">
+                        <i data-lucide="play-circle" class="w-16 h-16 text-blue-400 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-display font-bold text-white mb-2">Seguimiento</h3>
+                        <p class="text-gray-300 text-sm mb-4">Cómo monitorear tu progreso semanalmente</p>
+                        <div class="inline-flex items-center text-blue-400 text-sm font-semibold">
+                            <i data-lucide="clock" class="w-4 h-4 mr-2"></i>
+                            <span>Control</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="bg-gradient-to-r from-purple-600 to-cyan-600 text-white rounded-3xl p-8 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-display font-bold mb-4">
+                        📹 Acceso Completo Próximamente
+                    </h3>
+                    <p class="text-purple-100 mb-6">
+                        Biblioteca completa de videos terapéuticos personalizados para cada condición.
+                        Material exclusivo para pacientes en tratamiento.
+                    </p>
+                    <a href="#contacto" class="btn-neon">
+                        <i data-lucide="play" class="w-5 h-5"></i>
+                        Obtener Acceso
                     </a>
-                    <a href="https://wa.me/5492984931873" target="_blank" class="border-2 border-white text-white hover:bg-white hover:text-indigo-600 font-bold py-4 px-8 rounded-full transition-all duration-300">
-                        Consulta Rápida WhatsApp
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="investigacion" class="section-dark">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center space-x-2 glass-card px-4 py-2 text-sm text-green-400 mb-4">
+                    <i data-lucide="file-text" class="w-4 h-4"></i>
+                    <span>Investigación</span>
+                </div>
+                <h2 class="text-4xl lg:text-6xl font-display font-bold text-white mb-6">
+                    Respaldo 
+                    <span class="neon-text">Científico</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                    Publicaciones, participaciones en congresos y reconocimiento académico que respaldan la eficacia de nuestros métodos.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Academic Document 1 */}
+                <div class="dark-glass-card p-6 hover:scale-105 transition-transform">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg flex items-center justify-center">
+                            <i data-lucide="award" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-white mb-1">FASO 2024</h3>
+                            <p class="text-purple-300 text-sm">Congreso Otorrinolaringología</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Ponencia invitada en el 74º Congreso de la Federación Argentina de Sociedades de Otorrinolaringología.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-gray-400">2024</span>
+                        <button class="text-purple-400 hover:text-purple-300 transition-colors">
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Academic Document 2 */}
+                <div class="dark-glass-card p-6 hover:scale-105 transition-transform">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
+                            <i data-lucide="newspaper" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-white mb-1">Chequeado.com</h3>
+                            <p class="text-cyan-300 text-sm">Consulta Experta</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Experta consultada sobre "Mouth Taping" y respiración nasal para el medio de fact-checking más respetado de Argentina.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-gray-400">2025</span>
+                        <button class="text-cyan-400 hover:text-cyan-300 transition-colors">
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Academic Document 3 */}
+                <div class="dark-glass-card p-6 hover:scale-105 transition-transform">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center">
+                            <i data-lucide="graduation-cap" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-white mb-1">Formación España</h3>
+                            <p class="text-emerald-300 text-sm">Especialización Internacional</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Especialización avanzada en Terapia Miofuncional en España con técnicas europeas de vanguardia.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-gray-400">Certificación</span>
+                        <button class="text-emerald-400 hover:text-emerald-300 transition-colors">
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Academic Document 4 */}
+                <div class="dark-glass-card p-6 hover:scale-105 transition-transform">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center">
+                            <i data-lucide="building-2" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-white mb-1">Hospital Italiano</h3>
+                            <p class="text-amber-300 text-sm">Experiencia Clínica</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Años de experiencia clínica en el Servicio de Otorrinolaringología del Hospital Italiano de Buenos Aires.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-gray-400">Experiencia</span>
+                        <button class="text-amber-400 hover:text-amber-300 transition-colors">
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Academic Document 5 */}
+                <div class="dark-glass-card p-6 hover:scale-105 transition-transform">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-600 rounded-lg flex items-center justify-center">
+                            <i data-lucide="moon" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-white mb-1">Instituto IES</h3>
+                            <p class="text-pink-300 text-sm">Medicina del Sueño</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Colaboración con el Instituto de Enfermedades del Sueño y Dr. Sebastián López en investigación avanzada.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-gray-400">Colaboración</span>
+                        <button class="text-pink-400 hover:text-pink-300 transition-colors">
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Academic Document 6 */}
+                <div class="dark-glass-card p-6 hover:scale-105 transition-transform">
+                    <div class="flex items-start space-x-4 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
+                            <i data-lucide="book-open" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display font-bold text-lg text-white mb-1">Publicaciones</h3>
+                            <p class="text-blue-300 text-sm">Investigación Continua</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Investigación continua y publicaciones en el campo de la terapia miofuncional y medicina del sueño.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-gray-400">En desarrollo</span>
+                        <button class="text-blue-400 hover:text-blue-300 transition-colors">
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="glass-card p-8 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">
+                        📚 Documentación Completa
+                    </h3>
+                    <p class="text-gray-300 mb-6">
+                        Acceso completo a documentación académica, certificaciones y publicaciones 
+                        disponible para pacientes en tratamiento.
+                    </p>
+                    <a href="#contacto" class="btn-neon">
+                        <i data-lucide="file-text" class="w-5 h-5"></i>
+                        Solicitar Documentos
                     </a>
                 </div>
             </div>
@@ -692,42 +1070,42 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contacto" class="section-modern bg-white">
-        <div class="max-w-6xl mx-auto text-center">
-            <div class="inline-flex items-center space-x-2 bg-indigo-50 rounded-full px-4 py-2 text-sm text-indigo-600 mb-8">
+    <section id="contacto" class="section-light">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="inline-flex items-center space-x-2 bg-purple-100 rounded-full px-4 py-2 text-sm text-purple-600 mb-8">
                 <i data-lucide="calendar" class="w-4 h-4"></i>
                 <span>Contacto</span>
             </div>
             
             <h2 class="text-4xl lg:text-6xl font-display font-bold text-gray-900 mb-6">
-                Empieza tu 
-                <span class="gradient-text">Transformación</span>
-                Hoy
+                Inicia tu 
+                <span class="neon-text">Transformación</span>
+                Ahora
             </h2>
             
-            <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-                El primer paso es siempre el más importante. Agenda tu consulta y descubre 
-                cómo puedes recuperar el sueño que mereces.
+            <p class="text-xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+                El primer paso hacia un sueño reparador está a solo un mensaje de distancia. 
+                Agenda tu evaluación personalizada y descubre el tratamiento específico para tu caso.
             </p>
             
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
                 <!-- Presencial -->
-                <div class="card-modern p-8 text-center group hover:scale-105 transition-transform">
-                    <div class="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                <div class="academic-doc text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-700 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                         <i data-lucide="building-2" class="w-10 h-10 text-white"></i>
                     </div>
                     <h3 class="text-2xl font-display font-bold text-gray-900 mb-4">Consulta Presencial</h3>
                     <p class="text-gray-600 mb-6 leading-relaxed">
-                        Hospital Italiano de Buenos Aires<br>
+                        <strong>Hospital Italiano de Buenos Aires</strong><br>
                         Servicio de Otorrinolaringología<br>
-                        <span class="text-sm text-indigo-600 font-medium">Evaluación completa en persona</span>
+                        <span class="text-sm text-purple-600 font-medium">Evaluación completa en persona</span>
                     </p>
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-center space-x-2 text-gray-700">
+                    <div class="space-y-3 text-gray-600">
+                        <div class="flex items-center justify-center space-x-2">
                             <i data-lucide="clock" class="w-4 h-4"></i>
-                            <span>60-90 minutos</span>
+                            <span>Evaluación personalizada</span>
                         </div>
-                        <div class="flex items-center justify-center space-x-2 text-gray-700">
+                        <div class="flex items-center justify-center space-x-2">
                             <i data-lucide="map-pin" class="w-4 h-4"></i>
                             <span>Buenos Aires, Argentina</span>
                         </div>
@@ -735,22 +1113,22 @@
                 </div>
                 
                 <!-- Online -->
-                <div class="card-modern p-8 text-center group hover:scale-105 transition-transform">
-                    <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                <div class="academic-doc text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                         <i data-lucide="video" class="w-10 h-10 text-white"></i>
                     </div>
                     <h3 class="text-2xl font-display font-bold text-gray-900 mb-4">Consulta Online</h3>
                     <p class="text-gray-600 mb-6 leading-relaxed">
-                        Desde cualquier país del mundo<br>
-                        Misma calidad, resultados garantizados<br>
+                        <strong>Desde cualquier país</strong><br>
+                        Misma calidad profesional<br>
                         <span class="text-sm text-cyan-600 font-medium">Tecnología de vanguardia</span>
                     </p>
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-center space-x-2 text-gray-700">
+                    <div class="space-y-3 text-gray-600">
+                        <div class="flex items-center justify-center space-x-2">
                             <i data-lucide="clock" class="w-4 h-4"></i>
-                            <span>45-60 minutos</span>
+                            <span>Horario flexible</span>
                         </div>
-                        <div class="flex items-center justify-center space-x-2 text-gray-700">
+                        <div class="flex items-center justify-center space-x-2">
                             <i data-lucide="globe" class="w-4 h-4"></i>
                             <span>Alcance mundial</span>
                         </div>
@@ -758,27 +1136,27 @@
                 </div>
             </div>
             
-            <div class="bg-gray-50 rounded-3xl p-8 max-w-2xl mx-auto">
-                <h4 class="font-display font-bold text-xl text-gray-900 mb-4">
-                    🚀 Comienza Ahora
+            <div class="bg-gradient-to-r from-purple-600 to-cyan-600 text-white rounded-3xl p-8 max-w-2xl mx-auto">
+                <h4 class="font-display font-bold text-2xl mb-4">
+                    Comienza Tu Recuperación
                 </h4>
-                <p class="text-gray-600 mb-6">
-                    El sistema de citas online estará disponible pronto. 
-                    Mientras tanto, contáctame directamente:
+                <p class="text-purple-100 mb-6 leading-relaxed">
+                    Sistema de citas online próximamente disponible. 
+                    Mientras tanto, contáctame directamente para agendar tu evaluación:
                 </p>
                 
                 <a
                     href="https://wa.me/5492984931873"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="btn-primary text-xl px-12 py-4 mx-auto"
+                    class="btn-neon text-xl px-12 py-4 mx-auto mb-6"
                 >
                     <i data-lucide="message-circle" class="w-6 h-6"></i>
                     <span>WhatsApp Directo</span>
                 </a>
                 
-                <p class="text-sm text-gray-500 mt-4">
-                    +54 9 2984 93-1873 | Respuesta garantizada en menos de 24hs
+                <p class="text-sm text-purple-200">
+                    Respuesta garantizada en menos de 24 horas
                 </p>
             </div>
         </div>
@@ -786,18 +1164,18 @@
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-16">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <div class="mb-8">
-                <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <span class="text-white font-bold text-xl font-display">FB</span>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="w-16 h-16 neon-gradient rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <span class="text-black font-bold text-xl font-display">FB</span>
                 </div>
                 <h3 class="text-2xl font-display font-bold mb-2">Francisca Borrmann</h3>
-                <p class="text-gray-300">Especialista en Terapia Miofuncional</p>
+                <p class="neon-text text-lg">Especialista en Terapia Miofuncional</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8 mb-8 text-left">
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">Instituciones</h4>
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div class="text-center md:text-left">
+                    <h4 class="font-semibold text-lg mb-4 text-green-400">Instituciones</h4>
                     <div class="space-y-2 text-gray-300">
                         <p>Hospital Italiano de Buenos Aires</p>
                         <p>Instituto de Enfermedades del Sueño (IES)</p>
@@ -805,8 +1183,8 @@
                     </div>
                 </div>
                 
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">Servicios</h4>
+                <div class="text-center md:text-left">
+                    <h4 class="font-semibold text-lg mb-4 text-cyan-400">Servicios</h4>
                     <div class="space-y-2 text-gray-300">
                         <p>Terapia para Apnea del Sueño</p>
                         <p>Eliminación de Ronquidos</p>
@@ -815,17 +1193,17 @@
                     </div>
                 </div>
                 
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">Contacto</h4>
+                <div class="text-center md:text-left">
+                    <h4 class="font-semibold text-lg mb-4 text-purple-400">Contacto</h4>
                     <div class="space-y-2 text-gray-300">
-                        <p>WhatsApp: +54 9 2984 93-1873</p>
+                        <p>WhatsApp disponible</p>
                         <p>Modalidades: Presencial y Online</p>
                         <p>Respuesta en menos de 24hs</p>
                     </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 pt-8">
+            <div class="border-t border-gray-700 pt-8 text-center">
                 <p class="text-sm text-gray-400">
                     © 2026 Lic. Francisca Borrmann | Desarrollado por Tigre Vikingo 🐅
                 </p>
@@ -837,6 +1215,37 @@
         // Initialize Lucide icons
         lucide.createIcons();
         
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        function openMobileMenu() {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        
+        // Close mobile menu when clicking on a link
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close mobile menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                closeMobileMenu();
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -851,25 +1260,19 @@
             });
         });
 
-        // Mobile menu toggle (placeholder)
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', function() {
-                console.log('Mobile menu clicked - to implement');
-            });
-        }
-
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
             if (window.scrollY > 50) {
-                header.classList.add('shadow-lg');
+                header.classList.add('bg-black/95');
+                header.classList.remove('bg-black/90');
             } else {
-                header.classList.remove('shadow-lg');
+                header.classList.add('bg-black/90');
+                header.classList.remove('bg-black/95');
             }
         });
 
-        // Add some interactive animations on scroll
+        // Scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -884,12 +1287,12 @@
             });
         }, observerOptions);
 
-        // Observe service cards for animations
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
+        // Observe service cards and academic docs for animations
+        document.querySelectorAll('.service-card-modern, .academic-doc, .dark-glass-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(element);
         });
     </script>
 </body>
