@@ -1545,9 +1545,17 @@
             z-index: 9999;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+        .chatbot-bubble {
+            animation: bubblePulse 2.5s ease-in-out infinite;
+        }
         .chatbot-bubble:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 28px rgba(37, 99, 235, 0.5);
+            animation: none;
+        }
+        @keyframes bubblePulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4); transform: scale(1); }
+            50% { box-shadow: 0 4px 25px 8px rgba(37, 99, 235, 0.3); transform: scale(1.08); }
         }
         .chatbot-bubble svg { width: 28px; height: 28px; }
 
