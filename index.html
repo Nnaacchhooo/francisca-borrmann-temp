@@ -1265,6 +1265,387 @@
             observer.observe(element);
         });
     </script>
+
+    <!-- CHATBOT FAQ -->
+    <style>
+        .chatbot-bubble {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--medical-blue), var(--health-green));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+            z-index: 9999;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .chatbot-bubble:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(37, 99, 235, 0.5);
+        }
+        .chatbot-bubble svg { width: 28px; height: 28px; }
+
+        .chatbot-window {
+            position: fixed;
+            bottom: 96px;
+            right: 24px;
+            width: 370px;
+            max-height: 520px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        .chatbot-window.open { display: flex; }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--medical-blue), var(--health-green));
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .chatbot-header-avatar {
+            width: 40px; height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+        }
+        .chatbot-header-info h4 { margin: 0; font-size: 14px; font-weight: 600; }
+        .chatbot-header-info p { margin: 0; font-size: 11px; opacity: 0.85; }
+        .chatbot-close {
+            margin-left: auto; background: none; border: none; color: white;
+            cursor: pointer; font-size: 20px; padding: 4px;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 320px;
+            scroll-behavior: smooth;
+        }
+
+        .chat-msg {
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .chat-msg.bot {
+            background: #f1f5f9;
+            color: #1e293b;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        .chat-msg.user {
+            background: var(--medical-blue);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 0 16px 12px;
+        }
+        .chat-option-btn {
+            background: #f0f7ff;
+            border: 1px solid #bfdbfe;
+            color: var(--medical-blue);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+        .chat-option-btn:hover {
+            background: var(--medical-blue);
+            color: white;
+        }
+
+        .chatbot-input-area {
+            display: flex;
+            border-top: 1px solid #e2e8f0;
+            padding: 10px 12px;
+            gap: 8px;
+        }
+        .chatbot-input-area input {
+            flex: 1;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 8px 14px;
+            font-size: 13px;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+        }
+        .chatbot-input-area input:focus { border-color: var(--medical-blue); }
+        .chatbot-input-area button {
+            background: var(--medical-blue);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 36px; height: 36px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s;
+        }
+        .chatbot-input-area button:hover { background: #1d4ed8; }
+
+        @media (max-width: 430px) {
+            .chatbot-window {
+                right: 8px; left: 8px; bottom: 88px;
+                width: auto; max-height: 70vh;
+            }
+        }
+    </style>
+
+    <!-- Chatbot Bubble -->
+    <div class="chatbot-bubble" id="chatbotBubble" aria-label="Abrir chat de consultas">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+        </svg>
+    </div>
+
+    <!-- Chatbot Window -->
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <div class="chatbot-header-avatar">💬</div>
+            <div class="chatbot-header-info">
+                <h4>Consultas Frecuentes</h4>
+                <p>Terapia Miofuncional — Lic. Borrmann</p>
+            </div>
+            <button class="chatbot-close" id="chatbotClose">✕</button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages"></div>
+        <div class="chat-options" id="chatbotOptions"></div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbotInput" placeholder="Escribí tu consulta..." autocomplete="off">
+            <button id="chatbotSend">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        // FAQ Database
+        const faqDB = [
+            {
+                keywords: ["qué es", "que es", "terapia miofuncional", "en qué consiste", "de qué se trata"],
+                question: "¿Qué es la terapia miofuncional?",
+                answer: "La terapia miofuncional es una especialidad de la fonoaudiología que trabaja sobre los músculos de la cara, boca y garganta. Mediante ejercicios específicos, se mejora la función respiratoria, la deglución y la postura de la lengua y mandíbula. Es un abordaje no invasivo y complementario a otros tratamientos."
+            },
+            {
+                keywords: ["apnea", "apnea del sueño", "osahs", "sahos"],
+                question: "¿Sirve para la apnea del sueño?",
+                answer: "Sí. La terapia miofuncional es un tratamiento complementario reconocido para la apnea obstructiva del sueño. Trabajamos sobre la musculatura orofaríngea para mejorar la permeabilidad de la vía aérea durante el sueño. Puede utilizarse sola o en combinación con otros tratamientos según cada caso."
+            },
+            {
+                keywords: ["ronquido", "roncar", "ronquidos", "ronca"],
+                question: "¿Puede ayudar con los ronquidos?",
+                answer: "Sí, los ronquidos se producen por vibración de tejidos blandos en la vía aérea. La terapia miofuncional fortalece y tonifica esos tejidos, lo cual puede reducir significativamente los ronquidos. Muchos pacientes notan mejoría en las primeras semanas de ejercicios."
+            },
+            {
+                keywords: ["cpap", "máquina", "aparato"],
+                question: "¿Es un reemplazo del CPAP?",
+                answer: "La terapia miofuncional es un tratamiento complementario. En algunos casos puede ser una alternativa, pero cada paciente es diferente y requiere una evaluación individual. Trabajamos en conjunto con médicos especialistas en sueño para determinar el mejor abordaje para cada persona."
+            },
+            {
+                keywords: ["online", "virtual", "distancia", "remoto", "videollamada"],
+                question: "¿Las sesiones son online?",
+                answer: "Sí, las sesiones se realizan por videollamada. Esto permite atender pacientes de cualquier lugar. Solo necesitás una buena conexión a internet, cámara y un espacio tranquilo. La modalidad online es igual de efectiva ya que los ejercicios se enseñan, supervisan y corrigen en tiempo real."
+            },
+            {
+                keywords: ["sesión", "sesion", "duración", "duracion", "cuánto dura", "cuanto dura", "tiempo"],
+                question: "¿Cuánto dura una sesión?",
+                answer: "Las sesiones tienen una duración adaptada a las necesidades de cada paciente. En la primera consulta se realiza una evaluación completa para diseñar un plan de tratamiento personalizado."
+            },
+            {
+                keywords: ["precio", "costo", "cuánto sale", "cuanto sale", "valor", "tarifa", "cobrar"],
+                question: "¿Cuál es el costo de la consulta?",
+                answer: "El valor de la consulta se informa al momento de agendar el turno. Podés reservar tu consulta a través del botón de agenda o contactarnos por WhatsApp para más información."
+            },
+            {
+                keywords: ["turno", "cita", "agendar", "reservar", "calendario", "disponibilidad"],
+                question: "¿Cómo agendo un turno?",
+                answer: "Podés agendar tu turno directamente desde nuestra web haciendo click en el botón 'Agendar Consulta', que te llevará a nuestro calendario online. También podés contactarnos por WhatsApp y te ayudamos a encontrar el mejor horario."
+            },
+            {
+                keywords: ["deglución", "deglucion", "tragar", "disfagia", "masticar"],
+                question: "¿Tratan problemas de deglución?",
+                answer: "Sí, los trastornos de la deglución (disfagia) son una de las áreas principales de la terapia miofuncional. Trabajamos para mejorar la coordinación y fuerza de los músculos involucrados en la masticación y deglución, tanto en adultos como en niños."
+            },
+            {
+                keywords: ["niños", "ninos", "infantil", "chicos", "pediátrico", "pediatrico", "hijo"],
+                question: "¿Atienden niños?",
+                answer: "Sí, la terapia miofuncional es muy efectiva en niños. Se trabajan hábitos como la respiración bucal, deglución atípica, uso prolongado de chupete o mamadera, y postura lingual. La intervención temprana puede prevenir problemas mayores en el desarrollo."
+            },
+            {
+                keywords: ["ejercicio", "ejercicios", "qué hago", "práctica", "practica", "tarea"],
+                question: "¿Qué tipo de ejercicios se realizan?",
+                answer: "Los ejercicios son específicos para cada paciente y trabajan la musculatura de lengua, labios, mejillas y garganta. Son simples de realizar, se practican diariamente en casa y no requieren equipamiento especial. La constancia es clave para los resultados."
+            },
+            {
+                keywords: ["resultado", "resultados", "funciona", "efectivo", "evidencia", "científico"],
+                question: "¿La terapia tiene respaldo científico?",
+                answer: "Sí, la terapia miofuncional orofacial cuenta con evidencia científica creciente. Estudios publicados en revistas internacionales han demostrado su eficacia para reducir la severidad de la apnea del sueño, los ronquidos y mejorar la función deglutoria. La Lic. Borrmann presenta regularmente en congresos científicos como FASO."
+            },
+            {
+                keywords: ["derivación", "derivacion", "médico", "medico", "necesito orden", "receta"],
+                question: "¿Necesito derivación médica?",
+                answer: "No es requisito tener una derivación médica para consultar, aunque es recomendable. Si tenés un estudio de sueño (polisomnografía) o informes médicos previos, traelos a la consulta ya que son muy útiles para la evaluación. Trabajamos en equipo con médicos otorrinolaringólogos y especialistas en sueño."
+            },
+            {
+                keywords: ["formación", "formacion", "estudios", "dónde estudió", "experiencia", "currículum"],
+                question: "¿Cuál es la formación de la Lic. Borrmann?",
+                answer: "La Lic. Francisca Borrmann se formó en el Hospital Italiano de Buenos Aires (ORL) y se especializó en terapia miofuncional del sueño en España, con el Dr. Sebastián López en el Instituto IES. Es ponente en congresos como FASO y ha sido citada como experta en medios como Chequeado.com."
+            },
+            {
+                keywords: ["respirar", "respiración", "respiracion", "nariz", "boca", "respirador bucal"],
+                question: "¿Trabajan la respiración?",
+                answer: "Sí, la reeducación respiratoria es fundamental en la terapia miofuncional. Trabajamos para establecer una respiración nasal correcta, que es esencial para un buen descanso nocturno y para la salud general. La respiración bucal es uno de los factores que más afecta la calidad del sueño."
+            },
+            {
+                keywords: ["whatsapp", "contacto", "comunicar", "escribir", "llamar", "teléfono"],
+                question: "¿Cómo puedo contactar a la Lic. Borrmann?",
+                answer: "Podés contactarnos directamente por WhatsApp haciendo click en el botón de contacto de nuestra web. Te responderemos a la brevedad para resolver tus dudas o coordinar una consulta."
+            }
+        ];
+
+        const mainOptions = [
+            "¿Qué es la terapia miofuncional?",
+            "¿Sirve para apnea del sueño?",
+            "¿Las sesiones son online?",
+            "¿Cómo agendo un turno?",
+            "Ronquidos",
+            "Formación profesional"
+        ];
+
+        const chatMessages = document.getElementById('chatbotMessages');
+        const chatOptions = document.getElementById('chatbotOptions');
+        const chatInput = document.getElementById('chatbotInput');
+        const chatBubble = document.getElementById('chatbotBubble');
+        const chatWindow = document.getElementById('chatbotWindow');
+        const chatClose = document.getElementById('chatbotClose');
+        const chatSend = document.getElementById('chatbotSend');
+
+        function addMessage(text, type) {
+            const msg = document.createElement('div');
+            msg.className = 'chat-msg ' + type;
+            msg.textContent = text;
+            chatMessages.appendChild(msg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showOptions(options) {
+            chatOptions.innerHTML = '';
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'chat-option-btn';
+                btn.textContent = opt;
+                btn.addEventListener('click', () => handleUserInput(opt));
+                chatOptions.appendChild(btn);
+            });
+        }
+
+        function findAnswer(input) {
+            const lower = input.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            let bestMatch = null;
+            let bestScore = 0;
+
+            for (const faq of faqDB) {
+                let score = 0;
+                for (const kw of faq.keywords) {
+                    const kwNorm = kw.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                    if (lower.includes(kwNorm)) {
+                        score += kwNorm.length;
+                    }
+                }
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestMatch = faq;
+                }
+            }
+
+            return bestMatch;
+        }
+
+        function handleUserInput(text) {
+            addMessage(text, 'user');
+            chatOptions.innerHTML = '';
+
+            const match = findAnswer(text);
+
+            setTimeout(() => {
+                if (match) {
+                    addMessage(match.answer, 'bot');
+                    setTimeout(() => {
+                        addMessage("¿Tenés otra consulta?", 'bot');
+                        showOptions([...mainOptions.slice(0, 4), "Contactar por WhatsApp"]);
+                    }, 500);
+                } else {
+                    addMessage("No tengo información sobre eso todavía. ¿Te gustaría hablar directamente con la Lic. Borrmann?", 'bot');
+                    showOptions(["Contactar por WhatsApp", "Ver otras preguntas"]);
+                }
+            }, 400);
+        }
+
+        // Event listeners
+        chatBubble.addEventListener('click', () => {
+            chatWindow.classList.toggle('open');
+            if (chatWindow.classList.contains('open') && chatMessages.children.length === 0) {
+                addMessage("¡Hola! 👋 Soy el asistente de consultas de la Lic. Francisca Borrmann. ¿En qué puedo ayudarte?", 'bot');
+                showOptions(mainOptions);
+            }
+        });
+
+        chatClose.addEventListener('click', () => chatWindow.classList.remove('open'));
+
+        chatSend.addEventListener('click', () => {
+            const val = chatInput.value.trim();
+            if (val) { handleUserInput(val); chatInput.value = ''; }
+        });
+
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const val = chatInput.value.trim();
+                if (val) { handleUserInput(val); chatInput.value = ''; }
+            }
+        });
+
+        // WhatsApp redirect from chatbot
+        chatOptions.addEventListener('click', (e) => {
+            if (e.target.textContent === "Contactar por WhatsApp") {
+                window.open("https://wa.me/5492984931873?text=Hola%20Lic.%20Borrmann,%20tengo%20una%20consulta%20sobre%20terapia%20miofuncional", "_blank");
+            }
+            if (e.target.textContent === "Ver otras preguntas") {
+                chatOptions.innerHTML = '';
+                showOptions(mainOptions);
+            }
+        });
+    })();
+    </script>
 </body>
-</html><!-- Force deploy Sun Mar  1 01:06:23 UTC 2026 -->
-<!-- Force deploy Sun Mar  1 03:49:43 UTC 2026 -->
+</html>
